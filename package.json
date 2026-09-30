@@ -1,0 +1,9 @@
+{
+  "name": "invoice-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A small invoice API, used to demo the Apex Directive review action.",
+  "scripts": { "start": "node src/server.js" },
+  "dependencies": { "better-sqlite3": "^11.0.0", "express": "^4.21.0" }
+}
