@@ -1,18 +1,21 @@
 name: Apex review
 on:
   pull_request:
+    types: [labeled]
 
 permissions:
   contents: read
-  pull-requests: write
+  pull-requests: write   # to comment, and to remove the label
 
 jobs:
   review:
+    if: github.event.label.name == 'apex-review'
     runs-on: ubuntu-latest
     steps:
       - uses: Stackforge-Labs-Limited/apex-review-action@v1
         with:
           template: code
+          remove-label: true
           anthropic-api-key: ${{ secrets.ANTHROPIC_API_KEY }}
           openai-api-key: ${{ secrets.OPENAI_API_KEY }}
           google-api-key: ${{ secrets.GOOGLE_API_KEY }}
